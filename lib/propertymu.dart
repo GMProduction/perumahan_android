@@ -119,6 +119,14 @@ class _PropertymuState extends State<Propertymu> {
           ))
         ]),
       ),
+      floatingActionButton: FloatingActionButton.extended(
+        onPressed: () {
+          launchWhatsApp(phone: "6287731665598", message: "");
+        },
+        icon: const Icon(Icons.chat),
+        backgroundColor: Colors.green,
+        label: const Text('Chat Admin'),
+      ),
     );
   }
 

@@ -29,6 +29,7 @@ class _KeteranganState extends State<Keterangan> {
   final req = new GenRequest();
 
   var dataProperty, id,idp, perkembangan;
+  List<Widget> dataImage = [];
   bool isloaded = false;
 
   @override
@@ -60,7 +61,8 @@ class _KeteranganState extends State<Keterangan> {
           SizedBox(
             height: 30,
           ),
-          Expanded(
+          dataProperty == null
+              ? CircularProgressIndicator() : Expanded(
               child: Container(
             width: double.infinity,
             padding: EdgeInsets.all(16),
@@ -69,7 +71,7 @@ class _KeteranganState extends State<Keterangan> {
               color: GenColor.primaryColor,
               borderRadius: BorderRadius.all(Radius.circular(25)),
             ),
-                child: SingleChildScrollView(
+                child:  SingleChildScrollView(
                   child: Column(
                     children: [
                       Row(crossAxisAlignment: CrossAxisAlignment.start,
@@ -127,7 +129,8 @@ class _KeteranganState extends State<Keterangan> {
                       SizedBox(height: 10,),
 
                       CarouselSlider(
-                          items: [Image.asset("asset/logo.png")],
+                          // items: [Image.asset("asset/logo.png")],
+                          items: dataProperty.length == 0 ? [Image.asset("asset/logo.png")] : dataImage,
                           options: CarouselOptions(
                             height: 300,
                             aspectRatio: 16/9,
@@ -158,6 +161,12 @@ class _KeteranganState extends State<Keterangan> {
     dataProperty = await req.getApi("pesanan/"+idp.toString()+"/detail/" + id.toString());
 
     print("DATA $dataProperty");
+    print("IMAGE "+dataProperty["perkembangan"][0]["image"].toString());
+
+    for (var i = 0; i < dataProperty["perkembangan"][0]["image"].length; i++) {
+      dataImage.add(Image.network(ip + dataProperty["perkembangan"][0]["image"][i]["image"].toString()));
+    }
+
     print("length" + dataProperty.length.toString());
 
     setState(() {});
