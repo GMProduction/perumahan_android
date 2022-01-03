@@ -146,7 +146,7 @@ class _KeteranganState extends State<Keterangan> {
                           )
                       ),
 
-                      GenText(dataProperty["deskripsi"], style: TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold), textAlign: TextAlign.center,),
+                      GenText(dataProperty["perkembangan"][0]["keterangan"], style: TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold), textAlign: TextAlign.center,),
                     ],
                   ),
                 ),

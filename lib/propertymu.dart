@@ -5,12 +5,9 @@ import 'package:flutter/rendering.dart';
 import 'package:skripsi_perkembangan/pembangunan.dart';
 
 import 'component/JustHelper.dart';
-import 'component/TextFieldLogin.dart';
-import 'component/genButton.dart';
+import 'component/NavDrawer.dart';
 import 'component/genColor.dart';
-import 'component/genPreferrence.dart';
 import 'component/genText.dart';
-import 'component/genToast.dart';
 import 'component/request.dart';
 
 class Propertymu extends StatefulWidget {
@@ -36,6 +33,13 @@ class _PropertymuState extends State<Propertymu> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: NavDrawer(),
+      appBar: AppBar(
+        centerTitle: true,
+        backgroundColor: GenColor.primaryColor,
+        elevation: 0,
+
+      ),
       body: Container(
         padding: EdgeInsets.all(30),
         width: double.infinity,
@@ -52,7 +56,7 @@ class _PropertymuState extends State<Propertymu> {
             height: 15,
           ),
           Container(
-              width: 200,
+              width: 250,
               child: Text(
                 "Daftar Property yang kamu miliki",
                 style: TextStyle(color: Colors.black54, fontSize: 14),

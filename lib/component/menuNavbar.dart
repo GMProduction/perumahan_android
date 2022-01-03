@@ -9,8 +9,7 @@ class MenuNavbar {
 }
 
 const List<MenuNavbar> allDestinations = <MenuNavbar>[
-  MenuNavbar('Jadwal', Icons.home_outlined),
-  MenuNavbar('Fasilitas', Icons.assignment),
-  MenuNavbar('History', Icons.history),
-  MenuNavbar('Reservasi', Icons.shopping_cart_outlined),
+  MenuNavbar('Beranda', Icons.home_outlined),
+  MenuNavbar('Pengajuan', Icons.assignment),
+  MenuNavbar('Profil', Icons.account_box_outlined),
 ];
